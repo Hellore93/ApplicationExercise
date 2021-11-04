@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GrupaVIST</title>
+  <link rel="stylesheet" href="./css/style.css">
+  <link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" rel="stylesheet">
+</head>
+<body>
+
+  <div class="container">
+    <h2>ZALOGUJ SIĘ</h2>
+    <form class="log">
+      <label class="label-first" for="username">Login</label>
+      <input class="input-first" type="text" id="username" name="username">
+      <label class="label-second" for="password">Hasło</label>
+      <input class="input-second" type="password" id="password" name="password">
+      <div id="lower">
+        <p class="reg"><a href="#">Nie masz konta? <span><b>Zarejestruj się</b></span></a></p>
+        <button class="loginButton" type="submit" value="Login">ZALOGUJ SIĘ</button>
+      </div>
+    </form>
+    <img src="images/urn_aaid_sc_US_e97282a4-7efc-4a62-99dc-a46566985c72.png" alt="logo">
+  </div>
+
+  <div class="container registration hidden">
+      <h2>ZAREJESTRUJ SIĘ</h2>
+      <form class="log">
+        <label class="label-first" for="usernameReg">Login</label>
+        <input class="input-first" type="text" id="usernameReg" name="usernameReg">
+        <label class="label-second" for="useremail">E-mail</label>
+        <input class="input-second" type="text" id="useremail" name="useremail">
+        <label class="label-third" for="passwordReg">Hasło</label>
+        <input class="input-third" type="password" id="passwordReg" name="passwordReg">
+        <div id="lowerReg">
+          <button class="regButton" type="submit" value="Login">ZAREJESTRUJ SIĘ</button>
+        </div>
+      </form>
+      <img src="images/urn_aaid_sc_US_e97282a4-7efc-4a62-99dc-a46566985c72.png" alt="logo">
+  </div>
+
+
+  <div id="element" class="hidden">
+    <h1 class="headLoop">Nagłówek duży</h1>
+    <div id="panelElement"></div>
+  </div>
+
+  <script id="template-page-element" type="text/x-handlebars-template">
+    <div id="block" class="" data-id={{id}}>
+      <div id="favorite-btn" class="btn-favorite">
+        <button class="favorite-button">Test</button>
+      </div>
+      <h3 class="title">{{{name}}}</h3>
+      <p class="description">{{{description}}}</p>
+      <p class="description">{{{ingredients}}}</p>
+      <div class="loopImage">{{{pictures}}}</div>
+    </div>
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js"></script>
+  <script src="js/app.js" type="module"></script>
+</body>
+</html>

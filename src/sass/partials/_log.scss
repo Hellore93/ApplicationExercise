@@ -1,0 +1,93 @@
+input, .loginButton, .reg {
+  left: 503px;
+  width: 360px;
+  height: 50px;
+  position: absolute;
+}
+
+input {
+  top: 242px;
+  background: $color-white;
+  border: 2px solid $color-blue-middle;
+  border-radius: $radius;
+}
+
+.loginButton {
+  top: 401px;
+  background: $color-blue-dark;
+  border-radius: 4px;
+  color: $color-white;
+  font-weight: 550;
+}
+
+label {
+  left: 516px;
+  font: normal normal bold 14px/16px Arial;
+  color: $color-blue;
+  position: absolute;
+}
+
+.label-first {
+  top: 218px;
+  position: absolute;
+}
+
+.label-second{
+  top: 302px;
+  position: absolute;
+}
+
+.label-third{
+  top: 396px;
+}
+
+.input-second {
+  top: 326px;
+  position: absolute;
+}
+
+.input-third{
+  top: 420px;
+}
+
+.regButton{
+  top: 500px;
+  background: $color-blue-dark;
+  border-radius: 4px;
+  color: $color-white;
+  font-weight: 550;
+  left: 503px;
+  width: 360px;
+  height: 50px;
+  position: absolute;
+}
+
+.reg {
+  top: 462px;
+  left: 582px;
+  width: 203px;
+  height: 16px;
+  text-align: left;
+  letter-spacing: 0px;
+  color: $color-blue;
+}
+
+h2 {
+  top: 145px;
+  left: 616px;
+  width: 134px;
+  height: 22px;
+  text-align: center;
+  font: normal normal bold 20px/23px Arial;
+  letter-spacing: 0px;
+  color: $color-blue;
+  position: absolute;
+}
+
+img {
+  margin: auto;
+  position: relative;
+  display: flex;
+  transform: translateY(1200%);
+  left: 181px;
+}

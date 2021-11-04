@@ -1,0 +1,52 @@
+#element {
+  color: $color-blue;
+  width: 80vw;
+
+  .headLoop{
+    justify-content: center;
+    text-align: center;
+    font-family: $font-text;
+  }
+}
+
+#panelElement {
+  position: absolute;
+  width: 33.33%;
+  display: contents;
+}
+
+#block{
+  border: solid 2px $color-blue-middle;
+  display: inline-block;
+  margin: 5px;
+  border-radius: $radius;
+  width: 253px;
+  height: 333px;
+  font-family: $font-text;
+}
+
+#block::after {
+  content: "\f005";
+  font-family: "Font Awesome 5 Free";
+  position: absolute;
+  color: $color-blue;
+  font-weight: 900;
+  font-size: 18px;
+  margin: -300px 220px;
+}
+
+.loopImage {
+  width: 228px;
+  height: 195px;
+  background-color: $color-blue-light;
+  margin: auto;
+}
+
+.title, .description {
+  padding-left: 10px;
+  font-family: $font-text;
+}
+
+.hidden{
+  padding-top: 200px;
+}
