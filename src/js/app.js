@@ -1,17 +1,16 @@
+'use strict';
 import { settings } from './settings.js';
 import Element from './Element.js';
-// import Favorite from './Favorite.js';
+import ElementNavigation from './ElementNavigation.js';
 
 export const app = {
-
   initData: function () {
     const thisApp = this;
     thisApp.data = {};
     const url = settings.db.url + '/' + settings.db.elements;
-    console.log('url' + url);
+    // console.log('url' + url);
     fetch(url)
       .then(function (rawResponse) {
-        // console.log('rawResponse' + ' ' +rawResponse);
         return rawResponse.json();
       })
       .then(function (parsedResponse) {
@@ -37,15 +36,15 @@ export const app = {
         console.log(favoriteElement);
       });
     });
-    // console.log('app' + ' ' + favoriteElement.length);
-    // thisApp.favorite = new Favorite(favoriteElement);
-    // favoriteElement.addEventListener('click' , function(){
   },
 
   init:function(){
     const thisApp = this;
     thisApp.initData();
     thisApp.initLogin();
+    // thisApp.initRegistration();
+    // thisApp.initCreateAcount();
+    thisApp.initElementNavigation();
   },
 
   initLogin: function () {
@@ -62,15 +61,15 @@ export const app = {
       login.classList.add('hidden');
     });
 
-    console.log(url2);
+    // console.log(url2);
     fetch(url2)
       .then(function (rawResponse) {
-        console.log('rawResponse' + ' ' +rawResponse.length);
+        // console.log('rawResponse' + ' ' +rawResponse.length);
         return rawResponse.json();
       })
       .then(function (parsedResponse) {
         thisApp.data.elementsUser = parsedResponse;
-        console.log(Object.values(parsedResponse));
+        // console.log(Object.values(parsedResponse));
 
         const login = document.querySelector('#username');
         const password = document.querySelector('#password');
@@ -97,8 +96,42 @@ export const app = {
     element.classList.remove('hidden');
     const login = document.querySelector('.container');
     login.classList.add('hidden');
+  },
+
+  initElementNavigation: function(){
+    const thisApp = this;
+    const elemNavigation = document.querySelector('.panelElementNav');
+    thisApp.navigation = new ElementNavigation(elemNavigation);
   }
 
+  // initRegistration : function (){
+  //   const formLog = document.querySelector('.registration');
+  //   const registrationButton = document.querySelector('.regButton');
+  //   registrationButton.addEventListener('click', function(event){
+  //     event.preventDefault();
+  //     // createAcount();
+  // });
+
+  // const createAcount = async (e) => {
+  //   e.preventDefault();
+  //   const doc = {
+  //     Login: document.querySelector('#usernameReg').value,
+  //     Email: document.querySelector('#useremail').value,
+  //     Password: document.querySelector('#passwordReg').value
+  //   }
+  //   await fetch('http://localhost:3132/users', {
+  //     method: 'POST',
+  //     body: JSON.stringify(doc),
+  //     headers:{ 'Content-Type': 'application/json'}
+  //   });
+  //   window.location.replaced('/index.html');
+
+  //   const promise1 = new Promise((resolve,reject) =>{
+  //     console.log('dzialam');
+  //   })
+  // }
+  // formLog.addEventListener('submit', createAcount);
+  // }
 };
 
 app.init();

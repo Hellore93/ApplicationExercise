@@ -7,6 +7,7 @@ class Element {
     thisElement.id = id;
     thisElement.data = data;
     thisElement.renderInMenu();
+    // thisElement.elementNavigation();
   }
 
   renderInMenu() {
@@ -21,6 +22,10 @@ class Element {
     /* add element to menu */
     panelElement.appendChild(thisElement.element);
   }
+  // elementNavigation(){
+  //   const panelElementNav = document.querySelector('.panelElementNav');
+  //   panelElementNav.innerHTML('asd');
+  // }
 }
 
 export default Element;

@@ -1,13 +1,16 @@
 {
-  "users" : [{
-    "id":"001",
-    "Login":"Rafal",
-    "Password":"111"
-  },
-  {
-    "id":"002",
-    "Login":"Paulina",
-    "Password":"222"
-  }
-]
+  "users": [
+    {
+      "id": "001",
+      "Login": "Rafal",
+      "Email": "rafal@o2.pl",
+      "Password": "111"
+    },
+    {
+      "id": "002",
+      "Login": "Paulina",
+      "Email": "Paulina@o2.pl",
+      "Password": "222"
+    }
+  ]
 }
