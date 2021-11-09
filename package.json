@@ -16,7 +16,7 @@
         "test:js": "eslint --fix src/js/",
         "test:scss": "stylelint --fix src/sass/",
         "server": "json-server --port 3131 --no-cors --delay 250 --watch dist/db/app.json",
-        "server2":"json-server --port 3132 --no-cors --delay 250 --watch src/db/user.json",
+        "server2": "json-server --port 3132 --no-cors --delay 250 --watch src/db/user.json",
         "build": "npm-run-all build:* test",
         "build:clean": "rimraf dist && mkdirp dist",
         "build:copy": "copyfiles -a -u 1 -e \"**/sass/**/*\" -e \"**/.gitkeep\" \"src/**/*\" dist",
@@ -34,6 +34,7 @@
     "license": "ISC",
     "devDependencies": {
         "autoprefixer": "^10.2.4",
+        "babel-eslint": "^10.1.0",
         "browser-sync": "^2.26.3",
         "copyfiles": "^2.1.0",
         "eslint": "^5.16.0",

@@ -42,7 +42,7 @@ export const app = {
     const thisApp = this;
     thisApp.initData();
     thisApp.initLogin();
-    // thisApp.initRegistration();
+    thisApp.initRegistration();
     // thisApp.initCreateAcount();
     thisApp.initElementNavigation();
   },
@@ -102,36 +102,35 @@ export const app = {
     const thisApp = this;
     const elemNavigation = document.querySelector('.panelElementNav');
     thisApp.navigation = new ElementNavigation(elemNavigation);
-  }
+  },
 
-  // initRegistration : function (){
-  //   const formLog = document.querySelector('.registration');
-  //   const registrationButton = document.querySelector('.regButton');
-  //   registrationButton.addEventListener('click', function(event){
-  //     event.preventDefault();
-  //     // createAcount();
-  // });
+  initRegistration : function () {
 
-  // const createAcount = async (e) => {
-  //   e.preventDefault();
-  //   const doc = {
-  //     Login: document.querySelector('#usernameReg').value,
-  //     Email: document.querySelector('#useremail').value,
-  //     Password: document.querySelector('#passwordReg').value
-  //   }
-  //   await fetch('http://localhost:3132/users', {
-  //     method: 'POST',
-  //     body: JSON.stringify(doc),
-  //     headers:{ 'Content-Type': 'application/json'}
-  //   });
-  //   window.location.replaced('/index.html');
+    const formLog = document.querySelector('form');
+    const registrationButton = document.querySelector('.regButton');
+    registrationButton.addEventListener('click', function(event){
+      event.preventDefault();
 
-  //   const promise1 = new Promise((resolve,reject) =>{
-  //     console.log('dzialam');
-  //   })
-  // }
-  // formLog.addEventListener('submit', createAcount);
-  // }
+      createAcount();
+    });
+
+    const createAcount = async(e) => {
+      // e.preventDefault();
+      const doc = {
+        Login: document.querySelector('#usernameReg').value,
+        Email: document.querySelector('#useremail').value,
+        Password: document.querySelector('#passwordReg').value
+      };
+
+      await fetch('http://localhost:3132/users', {
+        method: 'POST',
+        body: JSON.stringify(doc),
+        headers:{ 'Content-Type': 'application/json'}
+      });
+    // window.location.replaced('/index.html');
+    };
+    formLog.addEventListener('submit', createAcount);
+  },
 };
 
 app.init();

@@ -31,5 +31,6 @@
     },
     "globals": {
       "Handlebars": false
-    }
+    },
+    "parser": "babel-eslint"
 }
