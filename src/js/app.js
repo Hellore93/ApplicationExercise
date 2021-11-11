@@ -105,15 +105,34 @@ export const app = {
   },
 
   initRegistration : function () {
-
-    const formLog = document.querySelector('form');
     const registrationButton = document.querySelector('.regButton');
     registrationButton.addEventListener('click', function(event){
       event.preventDefault();
-
       createAcount();
+      testEmail();
+      testLogin();
     });
 
+    const testLogin = function ValidationLogin(){
+      if(document.querySelector('#usernameReg').value.length>3){
+        return (true);
+      }
+      alert('You have entered an invalid login');
+    };
+
+    const testEmail = function ValidateEmail()
+    {
+      // eslint-disable-next-line no-useless-escape
+      if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(document.querySelector('#useremail').value))
+      {
+        return (true);
+      }
+      alert('You have entered an invalid email address!');
+      return (false);
+    };
+
+
+    // eslint-disable-next-line no-unused-vars
     const createAcount = async(e) => {
       // e.preventDefault();
       const doc = {
@@ -122,14 +141,15 @@ export const app = {
         Password: document.querySelector('#passwordReg').value
       };
 
-      await fetch('http://localhost:3132/users', {
-        method: 'POST',
-        body: JSON.stringify(doc),
-        headers:{ 'Content-Type': 'application/json'}
-      });
-    // window.location.replaced('/index.html');
+      // eslint-disable-next-line no-cond-assign
+      if (testEmail() == true && testLogin() == true){
+        await fetch('http://localhost:3132/users', {
+          method: 'POST',
+          body: JSON.stringify(doc),
+          headers:{ 'Content-Type': 'application/json'}
+        });
+      }else{console.log('NIE ZALOGUJE');}
     };
-    formLog.addEventListener('submit', createAcount);
   },
 };
 

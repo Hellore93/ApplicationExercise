@@ -11,6 +11,24 @@
       "Login": "Paulina",
       "Email": "Paulina@o2.pl",
       "Password": "222"
+    },
+    {
+      "Login": "Rafal",
+      "Email": "Rafal@o2.pl",
+      "Password": "111",
+      "id": "ny7HfKK"
+    },
+    {
+      "Login": "Paulina",
+      "Email": "Paulina@o2.pl",
+      "Password": "222",
+      "id": "ekH8ax_"
+    },
+    {
+      "Login": "Marek",
+      "Email": "Marek@o2.pl",
+      "Password": "333",
+      "id": "kTP7djn"
     }
   ]
 }
