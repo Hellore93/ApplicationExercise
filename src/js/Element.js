@@ -7,6 +7,7 @@ class Element {
     thisElement.id = id;
     thisElement.data = data;
     thisElement.renderInMenu();
+    console.log(thisElement.data.length);
     // thisElement.elementNavigation();
   }
 
@@ -16,7 +17,7 @@ class Element {
     const generatedHTML = templates.panelElement(thisElement.data);
     /* create element using utils.createElementFromHTML */
     thisElement.element = utils.createDOMFromHTML(generatedHTML);
-    thisElement.elements = utils.createDOMFromHTML(generatedHTML);
+    // thisElement.elements = utils.createDOMFromHTML(generatedHTML);
     /* find menu container */
     const panelElement = document.querySelector(select.containerOf.panelElement);
     /* add element to menu */

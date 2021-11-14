@@ -29,6 +29,18 @@
       "Email": "Marek@o2.pl",
       "Password": "333",
       "id": "kTP7djn"
+    },
+    {
+      "Login": "Rafal",
+      "Email": "Rafal2@o2.pl",
+      "Password": "111",
+      "id": "XjGKLGw"
+    },
+    {
+      "Login": "TestRafal",
+      "Email": "test@o2.pl",
+      "Password": "111",
+      "id": "rP59sZv"
     }
   ]
 }

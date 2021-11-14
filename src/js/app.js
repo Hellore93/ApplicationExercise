@@ -1,30 +1,35 @@
 'use strict';
-import { settings } from './settings.js';
-import Element from './Element.js';
+// import { settings } from './settings.js';
+// import Element from './Element.js';
 import ElementNavigation from './ElementNavigation.js';
+import ElementView from './ElementView.js';
 
 export const app = {
-  initData: function () {
-    const thisApp = this;
-    thisApp.data = {};
-    const url = settings.db.url + '/' + settings.db.elements;
-    // console.log('url' + url);
-    fetch(url)
-      .then(function (rawResponse) {
-        return rawResponse.json();
-      })
-      .then(function (parsedResponse) {
-        thisApp.data.elements = parsedResponse;
-        thisApp.initElement();
-      });
-  },
+  // initData: function () {
+  //   const thisApp = this;
+  //   thisApp.data = {};
+  //   const url = settings.db.url + '/' + settings.db.elements;
+  //   fetch(url)
+  //     .then(function (rawResponse) {
+  //       return rawResponse.json();
+  //     })
+  //     .then(function (parsedResponse) {
+  //       thisApp.data.elements = parsedResponse;
+  //       thisApp.initElement();
+  //     });
+  // },
 
-  initElement: function(){
+  // initElement: function(){
+  //   const thisApp = this;
+  //   for(let elementData in thisApp.data.elements){
+  //     new Element(thisApp.data.elements[elementData].id, thisApp.data.elements[elementData]);
+  //   }
+  //   thisApp.initFavorite();
+  // },
+
+  initElementView:function(){
     const thisApp = this;
-    for(let elementData in thisApp.data.elements){
-      new Element(thisApp.data.elements[elementData].id, thisApp.data.elements[elementData]);
-    }
-    thisApp.initFavorite();
+    thisApp.view = new ElementView();
   },
 
 
@@ -40,17 +45,18 @@ export const app = {
 
   init:function(){
     const thisApp = this;
-    thisApp.initData();
+    // thisApp.initData();
     thisApp.initLogin();
     thisApp.initRegistration();
-    // thisApp.initCreateAcount();
     thisApp.initElementNavigation();
+    thisApp.initElementView();
   },
 
   initLogin: function () {
     const thisApp = this;
     thisApp.dataUser = {};
-    const url2 = settings.db.urlUser + '/' + settings.db.users;
+    // const url2 = settings.db.urlUser + '/' + settings.db.users;
+    const url2 = 'http://localhost:3132/users';
 
     const passwordButton = document.querySelector('.reg');
     passwordButton.addEventListener('click', function(event){
@@ -61,16 +67,12 @@ export const app = {
       login.classList.add('hidden');
     });
 
-    // console.log(url2);
     fetch(url2)
       .then(function (rawResponse) {
-        // console.log('rawResponse' + ' ' +rawResponse.length);
         return rawResponse.json();
       })
       .then(function (parsedResponse) {
-        thisApp.data.elementsUser = parsedResponse;
-        // console.log(Object.values(parsedResponse));
-
+        thisApp.dataUser.elementsUser = parsedResponse;
         const login = document.querySelector('#username');
         const password = document.querySelector('#password');
         const loginButton = document.querySelector('.loginButton');
@@ -80,18 +82,17 @@ export const app = {
             const L = parsedResponse[i].Login;
             const P =parsedResponse[i].Password;
             if (login.value == L && password.value == P) {
-              console.log('podany login i hasło istnieją');
+              // console.log('podany login i hasło istnieją');
               thisApp.initHidden();
               break;
             }else{
-              console.log('Nie możemy cię zalogować');
+              // console.log('Nie możemy cię zalogować');
             }}
         });
       });
   },
 
   initHidden : function (){
-    console.log('funkcja działa');
     const element = document.querySelector('#element');
     element.classList.remove('hidden');
     const login = document.querySelector('.container');
