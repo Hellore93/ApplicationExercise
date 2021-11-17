@@ -3,6 +3,7 @@ class ElementView{
   constructor() {
     const thisElementView = this;
     thisElementView.renderPost();
+    thisElementView.try();
   }
 
   renderPost(){
@@ -15,7 +16,6 @@ class ElementView{
 
       const res = await fetch(uri);
       const posts = await res.json();
-      // console.log(posts.slice(0,5));
 
       const sum = Math.ceil(posts.length / 5) ;
       // console.log(sum);
@@ -27,47 +27,35 @@ class ElementView{
       }
       number.forEach(num =>{
         template2 +=`
-      <button id="postNavi" id-data="${num}" href="${num}">${num+1}</button>
+      <button id="postNavi" id-data="${num}">${num+1}</button>
       `;
       });
       panelElementNav.innerHTML = template2;
 
-      //eslint-disable-next-line no-unused-vars
+      // //eslint-disable-next-line no-unused-vars
       let naviButtonState = 0;
-      // eslint-disable-next-line no-unused-vars
-      const naviButton = document.querySelectorAll('#postNavi').forEach(item =>{
+      // // eslint-disable-next-line no-unused-vars
+      const naviButton = document.querySelectorAll('#postNavi');
+      naviButton.forEach(item =>{
         item.addEventListener('click', function(event){
           event.preventDefault();
-          const idData = item.getAttribute('[id-data]');
+          const idData = item.getAttribute('id-data');
           // naviButtonState.push(idData);
-          //linia ta daje 0 lub 1 w zaleznosci od wcisnietego buttona
-          console.log(item.getAttribute('id-data'));
+
+          console.log('idData' + idData);
+          // idData = naviButtonState;
           naviButtonState = idData;
+          console.log(naviButtonState);
         });
       });
+      console.log(naviButton);
       console.log('naviButtonState' + naviButtonState);
-
-      // // console.log('navibutstat' + naviButtonState);
-      // console.log(panelElementNav);
-      // const navButton=document.querySelectorAll('[id-data]');
-      // // panelElementNav.button.addEventListener('click', function(){
-      // //   console.log('dzialam');
-      // // });
-      // console.log(navButton[0]);
-      // // const sliceObject = 0;
-      // navButton.addEventListener('click', function(){
-      //   const idData = navButton.getAttribute('id-data');
-      //   console.log(idData);
-      // });
-
-      //Znajdź rozwiązanie na to jak zapisac stan w navibuttonstate
-      // naviButton.addEventListener('click', function(){
-      //   console.log('navibutstat' + naviButtonState);
-      // });
+      console.log(naviButtonState);
 
 
-      const a = 0 + (naviButtonState*5);
-      const b = 5 + (naviButtonState*5);
+
+      let a = 0 + (naviButtonState*5);
+      let b = 5 + (naviButtonState*5);
       // eslint-disable-next-line no-unused-vars
       let template = '';
       posts.slice(a,b).forEach(post =>{
@@ -86,6 +74,10 @@ class ElementView{
       ElementViewDocument.innerHTML = template;
     };
     window.addEventListener('DOMContentLoaded', () => renderPostAsync());
+  }
+
+  try(){
+
   }
 }
 

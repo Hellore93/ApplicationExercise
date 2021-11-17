@@ -34,7 +34,7 @@ class ElementNavigation {
       const number={};
       for (let i=1; i<=navQuan; i++){
         let number = [i];
-        // console.log(number);
+        console.log(number);
       }
       // console.log('ile elementów' + ' '+navQuan);
       panelElementNav.innerHTML = number.value;
