@@ -3,7 +3,7 @@ class ElementView{
   constructor() {
     const thisElementView = this;
     thisElementView.renderPost();
-    thisElementView.try();
+    // thisElementView.try();
   }
 
   renderPost(){
@@ -32,14 +32,13 @@ class ElementView{
       });
       panelElementNav.innerHTML = template2;
 
-      // //eslint-disable-next-line no-unused-vars
       let naviButtonState = 0;
-      // // eslint-disable-next-line no-unused-vars
-      const naviButton = document.querySelectorAll('#postNavi');
+
+      let naviButton = document.querySelectorAll('#postNavi');
       naviButton.forEach(item =>{
         item.addEventListener('click', function(event){
           event.preventDefault();
-          const idData = item.getAttribute('id-data');
+          const idData = item.getAttribute('id-data') || 0;
           // naviButtonState.push(idData);
 
           console.log('idData' + idData);
@@ -48,22 +47,17 @@ class ElementView{
           console.log(naviButtonState);
         });
       });
-      console.log(naviButton);
-      console.log('naviButtonState' + naviButtonState);
-      console.log(naviButtonState);
-
-
 
       let a = 0 + (naviButtonState*5);
       let b = 5 + (naviButtonState*5);
-      // eslint-disable-next-line no-unused-vars
       let template = '';
       posts.slice(a,b).forEach(post =>{
         template += `
-              <div id="block" class="" data-id=${post.id}>
-              <div id="favorite-btn" class="btn-favorite">
-                <button class="favorite-button">Test</button>
-              </div>
+            <div id="block" class="" data-id=${post.id}>
+
+                <button class="favorite-button"><i class="fas fa-star"></i>
+                </button>
+
               <h3 class="title">${post.name}</h3>
               <p class="description">${post.description}</p>
               <p class="description">${post.ingredients}</p>
@@ -71,13 +65,16 @@ class ElementView{
             </div>
             `;
       });
+
+      
       ElementViewDocument.innerHTML = template;
+      const newButton = document.querySelector('.favorite-button');
+      newButton.addEventListener('click', function(){
+        console.log('dzialam');
+      });
+
     };
     window.addEventListener('DOMContentLoaded', () => renderPostAsync());
-  }
-
-  try(){
-
   }
 }
 

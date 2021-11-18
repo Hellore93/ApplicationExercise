@@ -25,28 +25,40 @@
   font-family: $font-text;
 }
 
-#block::after {
-  content: "\f005";
-  font-family: "Font Awesome 5 Free";
-  position: absolute;
+.favorite-button{
   color: $color-blue;
+  background: none;
+  border:none;
+  position:absolute;
+  display: flex;
+  padding-left: 230px;
+  padding-top:10px;
+}
+
+.favorite-button::after {
+  color: $color-favorite;
   font-weight: 900;
   font-size: 18px;
   margin: -300px 220px;
 }
 
-.loopImage {
-  width: 228px;
-  height: 195px;
-  background-color: $color-blue-light;
-  margin: auto;
-}
-
-.title, .description {
+.description {
   padding-left: 10px;
   font-family: $font-text;
 }
 
+.title {
+  font-family: $font-text;
+  text-align: center;
+}
+
 .hidden{
   padding-top: 200px;
+}
+
+.loopImage {
+  width: 228px;
+  height: 175px;
+  background-color: $color-blue-light;
+  margin: auto;
 }
